@@ -51,7 +51,7 @@ function createAdmin() {
 // createAdmin(); créer l'administrateur par défaut lors du 1er lancement
 
 const server = http.createServer(app);
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync(/*{ force: true }*/).then(() => {
   server.on('error', errorHandler);
   server.on('listening', () => {
     const address = server.address();
