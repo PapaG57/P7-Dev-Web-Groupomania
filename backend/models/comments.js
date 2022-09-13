@@ -1,3 +1,4 @@
+// Indique le format de la table de modèle comments //
 
 module.exports = (sequelize, DataTypes) => {
   const Comments = sequelize.define('Comments', {

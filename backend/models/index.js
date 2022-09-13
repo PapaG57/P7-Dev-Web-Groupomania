@@ -1,5 +1,7 @@
 'use strict';
 
+// configuration et sécurisation de la base de données //
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

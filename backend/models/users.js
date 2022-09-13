@@ -1,3 +1,4 @@
+// Indique le format de la table de modèle users //
 
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
@@ -6,7 +7,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     lastname: {
       type: DataTypes.STRING,
-    
     },
     username: {
       type: DataTypes.STRING,
@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
-     
     },
     profile: {
       type: DataTypes.STRING,
@@ -37,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
     },
   });
-  
+
   Users.associate = (models) => {
     Users.hasMany(models.Posts, {
       onDelete: 'cascade',
