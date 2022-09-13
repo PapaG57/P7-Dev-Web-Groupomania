@@ -8,8 +8,9 @@
 
 ## Pour commencer :
 
-Cloner le projet à l'adresse suivante : [Groupomania](https://github.com/PapaG57/P7_DEV_GROUPOMANIA-.git)
-Choisir ou créer un dossier du nom que vous voulez et ouvrir votre IDE à cet emplacement.
+Préparer un dossier pour votre projet et cloner le projet à l'adresse suivante : [Groupomania](https://github.com/PapaG57/P7_DEV_GROUPOMANIA-.git)
+
+Ouvrir votre IDE à l'emplacement d'enregistrement du dossier.
 
 ## NE PAS OUBLIER :
 
