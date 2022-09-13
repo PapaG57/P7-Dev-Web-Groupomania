@@ -1,11 +1,10 @@
-
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
-//----------------//
+
 // Import routers //
-//----------------//
+
 const authRouter = require('./routes/authentication');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
