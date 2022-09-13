@@ -1,6 +1,6 @@
 # INSTALLATION APPLICATION GROUPOMANIA
 
-## conçu avec :
+## Prérequis :
 
 - le framework React ([github React](https://github.com/reactjs))
 - node.js ([github node.js](https://github.com/nodejs))
@@ -8,21 +8,18 @@
 
 ## Pour commencer :
 
+clone le projet
 Choisir ou créer un dossier du nom que vous voulez et ouvrir votre IDE à cet emplacement.
 
-## Installer React
+## Ce qui est installé avec React
 
 Ouvrir un terminal et tapez `npx create-react-app groupomania` et attendre la fin de l'installation.
 Dans le dossier "groupomania" créer le dossier `frontend`, coupez tous les dossiers et coller-les dans le dossier `frontend`.
 Pour le bon fonctionnement de votre `frontend` installez les modules suivants :
 
-- axios
-- formik
-- yup
-
 Dans le dossier `public`, ne pas oublier de changer le `title` du document avec un titre approprié.
 
-## Installer node.js
+<!-- ## Installer node.js
 
 Toujours dans le dossier "groupomania", créer un dossier `backend`.
 Dans votre IDE, ouvrez un terminal et accedez jusqu'au l'intérieur du repertoire du dossier `backend`.
@@ -35,7 +32,7 @@ Pour le bon fonctionnement de votre `backend` installez les modules suivants :
 ## Installer XAMPP
 
 Si vous l'avez téléchargé, installez le et sur le panel control, cliquez sur le bouton start d'apache et mysql.
-Cliquez sur le bouton admin de mysql afin de créer la table de données.
+Cliquez sur le bouton admin de mysql afin de créer la table de données. -->
 
 ## ATTENTION :
 
