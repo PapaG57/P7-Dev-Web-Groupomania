@@ -1,6 +1,8 @@
 const { Posts, Likes, Comments } = require('../models');
 const fs = require('fs');
 
+// création d'un poste //
+
 exports.createPost = async (req, res) => {
   let image;
   console.log(req.body);
@@ -24,6 +26,8 @@ exports.createPost = async (req, res) => {
   }
 };
 
+// pour voir tous les postes //
+
 exports.getAllPosts = async (req, res) => {
   try {
     const listOfPosts = await Posts.findAll({ include: [Likes, Comments] });
@@ -33,6 +37,8 @@ exports.getAllPosts = async (req, res) => {
     res.status(400).json({ error: 'Erreur' + error });
   }
 };
+
+// pour voir un poste //
 
 exports.getPost = async (req, res) => {
   id = req.params.id;
@@ -44,6 +50,8 @@ exports.getPost = async (req, res) => {
       res.status(400).json({ error: 'Erreur' + error });
     });
 };
+
+// pour modifier un poste //
 
 exports.modifyPost = async (req, res) => {
   id = req.params.id;
@@ -61,6 +69,8 @@ exports.modifyPost = async (req, res) => {
       res.status(400).json({ error: 'Erreur' + error });
     });
 };
+
+// suppression d'un post //
 
 exports.deletePost = (req, res) => {
   id = req.params.id;

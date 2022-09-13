@@ -1,37 +1,39 @@
-
 const { Users } = require('../models');
 const bcrypt = require('bcrypt');
 const { sign } = require('jsonwebtoken');
 require('dotenv').config({ path: '.env' });
 
-//--------------------------------------------------------------------------------------------------------------------------------------//
+// création d'un compte utilisateur //
+
 exports.signup = async (req, res) => {
-  const { firstname, lastname,username, email, password} = req.body;
-  if (firstname == null ||lastname == null ||username == null || email == null || password == null) {
+  const { firstname, lastname, username, email, password } = req.body;
+  if (
+    firstname == null ||
+    lastname == null ||
+    username == null ||
+    email == null ||
+    password == null
+  ) {
     return res.status(400).json({ error: 'champs incomplet' });
   }
-  if ( firstname.length <= 2) {
-    return res
-      .status(400)
-      .json({ error: 'prenom trop court' });
+  if (firstname.length <= 2) {
+    return res.status(400).json({ error: 'prenom trop court' });
   }
-  if ( lastname.length <= 2) {
-    return res
-      .status(400)
-      .json({ error: 'nom trop court' });
+  if (lastname.length <= 2) {
+    return res.status(400).json({ error: 'nom trop court' });
   }
-  if ( username.length <= 2) {
-    return res
-      .status(400)
-      .json({ error: 'Username trop court' });
+  if (username.length <= 2) {
+    return res.status(400).json({ error: 'Username trop court' });
   }
+
+  //Creation de la reg exp pour validation de l'adresse postale //
   const EMAIL =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!EMAIL.test(email)) {
-    return res
-      .status(400)
-      .json({ error: 'adress email non valide' });
+    return res.status(400).json({ error: 'adress email non valide' });
   }
+
+  //Creation de la reg exp pour validation du mot de passe //
   const PASS = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
   if (!PASS.test(password)) {
     return res.status(400).json({
@@ -57,14 +59,10 @@ exports.signup = async (req, res) => {
                 password: hash,
               })
                 .then((user) => {
-                  return res
-                    .status(201)
-                    .json({ message: 'Utilisateur créé ' });
+                  return res.status(201).json({ message: 'Utilisateur créé ' });
                 })
                 .catch((error) => {
-                  return res
-                    .status(500)
-                    .json({ error: 'Erreur ' + error });
+                  return res.status(500).json({ error: 'Erreur ' + error });
                 });
             });
           } else {
@@ -74,17 +72,17 @@ exports.signup = async (req, res) => {
           }
         })
         .catch((error) => {
-          return res
-            .status(500)
-            .json({ error: 'Erreur ' + error });
+          return res.status(500).json({ error: 'Erreur ' + error });
         });
     }
   });
 };
 
+// connection de l'utilisateur existant //
+
 exports.signin = async (req, res) => {
   const { email, password } = req.body;
- 
+
   await Users.findOne({ where: { email: email } })
     .then((user) => {
       if (user) {

@@ -1,4 +1,5 @@
- 
+// gère les likes et les dislikes //
+
 const { Likes } = require('../models');
 
 exports.liker = async (req, res) => {

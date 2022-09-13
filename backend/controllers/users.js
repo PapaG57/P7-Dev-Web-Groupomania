@@ -2,6 +2,8 @@ const { Users } = require('../models');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 
+// création du compte utilisateur //
+
 exports.getUser = async (req, res) => {
   try {
     const id = req.params.id;
@@ -24,6 +26,8 @@ exports.getUser = async (req, res) => {
     res.status(500).send({ error: 'Erreur ' + error });
   }
 };
+
+// modification des données du compte utilisateur //
 
 exports.modifyUser = async (req, res) => {
   console.log(req.body);
@@ -58,6 +62,8 @@ exports.modifyUser = async (req, res) => {
     res.status(500).send({ error: 'Erreur ' + error });
   }
 };
+
+// suppression du compte //
 
 exports.deleteUser = (req, res) => {
   const id = req.params.id;
