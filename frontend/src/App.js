@@ -1,4 +1,4 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import './styles/index.css';
 import { AuthContext } from './helpers/authContext';
