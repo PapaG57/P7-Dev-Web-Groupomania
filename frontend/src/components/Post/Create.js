@@ -1,4 +1,4 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import React, { useState } from 'react';
 import axios from 'axios';

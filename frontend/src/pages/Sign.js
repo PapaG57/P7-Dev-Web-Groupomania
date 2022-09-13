@@ -1,4 +1,4 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

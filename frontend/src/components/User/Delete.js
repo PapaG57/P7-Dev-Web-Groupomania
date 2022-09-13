@@ -1,4 +1,4 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../helpers/authContext';
