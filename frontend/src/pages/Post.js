@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DoneIcon from '@mui/icons-material/Done';
 import { AuthContext } from '../helpers/authContext';
 function Post() {
-  // Déclaration des hooks useParams, useNavigate, useState et useContext //
+  // Déclaration des hooks useParams, useNavigate, useState et useContext
 
   let { id } = useParams();
   let navigate = useNavigate();
@@ -22,16 +22,16 @@ function Post() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewcomment] = useState('');
 
-  // Déclaration des valeurs initiales du formulaire //
+  // Déclaration des valeurs initiales du formulaire
 
   const initialValues = {
     content: `${content}`,
   };
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
-    // Fait une requête GET pour obtenir le message par son identifiant //
+    // Fait une requête GET pour obtenir le message par son identifiant
 
     if (!sessionStorage.getItem('JWToken')) {
       window.location.replace(`/`);
@@ -59,7 +59,7 @@ function Post() {
     }
   }, []);
 
-  // demande PUT //
+  // demande PUT commentaire
 
   const updateContent = (data) => {
     axios
@@ -74,7 +74,7 @@ function Post() {
       });
   };
 
-  // demande PUT //
+  // demande PUT image
 
   const updateImage = (event) => {
     event.preventDefault();
@@ -91,9 +91,9 @@ function Post() {
       });
   };
 
-  // Effectue une requête DELETE pour supprimer le message //
-  // Vérifie si l'utilisateur à un token valide //
-  // Redirige vers la page d'accueil après la suppression d'un message //
+  // Effectue une requête DELETE pour supprimer le message
+  // Vérifie si l'utilisateur à un token valide
+  // Redirige vers la page d'accueil après la suppression d'un message
 
   const deletePost = (id) => {
     axios
@@ -107,9 +107,9 @@ function Post() {
       });
   };
 
-  // Fait une requête POST pour ajouter un nouveau commentaire à ce post //
-  // Vérifie si l'utilisateur à un token valide //
-  // Renvoie la réponse sous la forme d'un nouveau commentaire //
+  // Fait une requête POST pour ajouter un nouveau commentaire à ce post
+  // Vérifie si l'utilisateur à un token valide
+  // Renvoie la réponse sous la forme d'un nouveau commentaire
 
   const createComment = (event) => {
     event.preventDefault();
@@ -142,7 +142,7 @@ function Post() {
       });
   };
 
-  // demande DELETE //
+  // demande DELETE
 
   const deleteComment = (id) => {
     axios
@@ -156,7 +156,7 @@ function Post() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="page_container">
@@ -327,6 +327,6 @@ function Post() {
   );
 }
 
-// Exportation du componsant Post //
+// Exportation du componsant Post
 
 export default Post;

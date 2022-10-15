@@ -7,7 +7,7 @@ import Home from '../../pages/Home';
 import User from '../../pages/User';
 import Post from '../../pages/Post';
 
-// démarrage du composant index //
+// démarrage du composant index
 
 function index() {
   // DOM virtuel //
@@ -24,6 +24,6 @@ function index() {
   );
 }
 
-// Exportation du componsant index //
+// Exportation du componsant index
 
 export default index;

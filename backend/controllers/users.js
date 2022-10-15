@@ -2,7 +2,7 @@ const { Users } = require('../models');
 const bcrypt = require('bcrypt');
 const fs = require('fs');
 
-// création du compte utilisateur //
+// création du compte utilisateur
 
 exports.getUser = async (req, res) => {
   try {
@@ -27,7 +27,7 @@ exports.getUser = async (req, res) => {
   }
 };
 
-// modification des données du compte utilisateur //
+// modification des données du compte utilisateur
 
 exports.modifyUser = async (req, res) => {
   console.log(req.body);
@@ -63,7 +63,7 @@ exports.modifyUser = async (req, res) => {
   }
 };
 
-// suppression du compte //
+// suppression du compte
 
 exports.deleteUser = (req, res) => {
   const id = req.params.id;

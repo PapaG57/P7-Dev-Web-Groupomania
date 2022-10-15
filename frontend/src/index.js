@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-// DOM virtuel //
+// DOM virtuel
 
 ReactDOM.render(
   <React.StrictMode>

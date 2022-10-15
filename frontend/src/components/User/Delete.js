@@ -5,17 +5,17 @@ import { AuthContext } from '../../helpers/authContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// démarrage du composant Delete //
+// démarrage du composant Delete
 
 function Delete() {
-  // Déclaration des hooks useState, useContext et useParams //
+  // Déclaration des hooks useState, useContext et useParams
 
   let navigate = useNavigate();
   const [email, setEmail] = useState('');
   const { authState } = useContext(AuthContext);
   let { id } = useParams();
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     axios
@@ -29,7 +29,7 @@ function Delete() {
       });
   }, []);
 
-  // demande DELETE //
+  // demande DELETE
 
   const handleDelete = () => {
     axios
@@ -44,7 +44,7 @@ function Delete() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <>
@@ -70,6 +70,6 @@ function Delete() {
   );
 }
 
-// Exportation du componsant Delete //
+// Exportation du componsant Delete
 
 export default Delete;

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { sign } = require('jsonwebtoken');
 require('dotenv').config({ path: '.env' });
 
-// création d'un compte utilisateur //
+// création d'un compte utilisateur
 
 exports.signup = async (req, res) => {
   const { firstname, lastname, username, email, password } = req.body;
@@ -26,14 +26,14 @@ exports.signup = async (req, res) => {
     return res.status(400).json({ error: 'Username trop court' });
   }
 
-  //Creation de la reg exp pour validation de l'adresse postale //
+  //Creation de la reg exp pour validation de l'adresse postale
   const EMAIL =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!EMAIL.test(email)) {
     return res.status(400).json({ error: 'adress email non valide' });
   }
 
-  //Creation de la reg exp pour validation du mot de passe //
+  //Creation de la reg exp pour validation du mot de passe
   const PASS = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
   if (!PASS.test(password)) {
     return res.status(400).json({
@@ -78,7 +78,7 @@ exports.signup = async (req, res) => {
   });
 };
 
-// connection de l'utilisateur existant //
+// connection de l'utilisateur existant
 
 exports.signin = async (req, res) => {
   const { email, password } = req.body;

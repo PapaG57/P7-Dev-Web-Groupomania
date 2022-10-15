@@ -5,17 +5,17 @@ import axios from 'axios';
 import { AuthContext } from '../../helpers/authContext';
 import { useParams } from 'react-router-dom';
 
-// démarrage du composant Upload //
+// démarrage du composant Upload
 
 function Upload() {
-  // Déclaration des hooks useState, useContext et useParams //
+  // Déclaration des hooks useState, useContext et useParams
 
   let { id } = useParams();
   const [image, setImage] = useState('');
   const { authState } = useContext(AuthContext);
   const [email, setEmail] = useState('');
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     axios
@@ -29,7 +29,7 @@ function Upload() {
       });
   }, []);
 
-  // demande PUT //
+  // demande PUT
 
   const handleUpload = (event) => {
     event.preventDefault();
@@ -51,7 +51,7 @@ function Upload() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <>
@@ -93,6 +93,6 @@ function Upload() {
   );
 }
 
-// Exportation du componsant Upload //
+// Exportation du componsant Upload
 
 export default Upload;

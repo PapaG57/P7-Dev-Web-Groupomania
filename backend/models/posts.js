@@ -1,4 +1,4 @@
-// Indique le format de la table de modèle post //
+// Indique le format de la table de modèle post
 
 module.exports = (sequelize, DataTypes) => {
   const Posts = sequelize.define('Posts', {

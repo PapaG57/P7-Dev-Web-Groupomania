@@ -1,4 +1,4 @@
-// Indique le format de la table de modèle users //
+// Indique le format de la table de modèle users
 
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {

@@ -1,12 +1,12 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import React from 'react';
 import Logo from '../image/icon-left-font.png';
 
-// démarrage du composant Header //
+// démarrage du composant Header
 
 function Header() {
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <header className="container">
@@ -17,6 +17,6 @@ function Header() {
   );
 }
 
-// Exportation du componsant Header //
+// Exportation du componsant Header
 
 export default Header;

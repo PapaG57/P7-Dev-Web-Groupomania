@@ -8,25 +8,25 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
 import Create from '../components/Post/Create';
 function Home() {
-  // Déclaration des hooks useNavigate et useState //
+  // Déclaration des hooks useNavigate et useState
 
   let navigate = useNavigate();
   const [listOfPosts, setListOfPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
-    // Vérifie si l'utilisateur a un token valide avant d'afficher la page //
-    // Si l'utilisateur n'a pas de token valide, il est redirigé vers la page de connexion //
-    // Sinon il affiche la page //
+    // Vérifie si l'utilisateur a un token valide avant d'afficher la page
+    // Si l'utilisateur n'a pas de token valide, il est redirigé vers la page de connexion
+    // Sinon il affiche la page
 
     if (!sessionStorage.getItem('JWToken')) {
       navigate('/');
     } else {
-      // Effectue une requête GET pour récupérer toutes les données de la table des messages //
-      // Vérifie si l'utilisateur à un token valide //
-      // Puis renvoie les listes reçues de l'API //
+      // Effectue une requête GET pour récupérer toutes les données de la table des messages
+      // Vérifie si l'utilisateur à un token valide
+      // Puis renvoie les listes reçues de l'API
 
       axios
         .get(`${process.env.REACT_APP_API_URL}api/posts`, {
@@ -45,14 +45,14 @@ function Home() {
     }
   }, []);
 
-  // Créer une fonction pour liker ou disliker une publication //
-  // Fait une requête POST qui bascule le bouton sur like ou pas //
-  // Vérifie si l'utilisateur a un token valide //
-  // Retourne ensuite la réponse //
-  // Saisit le message dans la liste des messages //
-  // Si l'id du post est égal au PostId //
-  // Si le message n'a pas de like, le renvoie avec seulement le like ajouté //
-  // Sinon, si le message a un like, le renvoie avec seulement le like supprimé  //
+  // Créer une fonction pour liker ou disliker une publication
+  // Fait une requête POST qui bascule le bouton sur like ou pas
+  // Vérifie si l'utilisateur a un token valide
+  // Retourne ensuite la réponse
+  // Saisit le message dans la liste des messages
+  // Si l'id du post est égal au PostId
+  // Si le message n'a pas de like, le renvoie avec seulement le like ajouté
+  // Sinon, si le message a un like, le renvoie avec seulement le like supprimé
 
   const likeOrNot = (postId) => {
     axios
@@ -93,7 +93,7 @@ function Home() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="page_container">
@@ -158,6 +158,6 @@ function Home() {
   );
 }
 
-// Exportation du componsant Home //
+// Exportation du componsant Home
 
 export default Home;

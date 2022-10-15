@@ -7,10 +7,10 @@ import axios from 'axios';
 import Header from './components/Header';
 import Routes from './components/Routes';
 
-// Application du point d'entrée //
+// Application du point d'entrée
 
 function App() {
-  // Declare le hook useState //
+  // Declare le hook useState
 
   const [authState, setAuthState] = useState({
     id: 0,
@@ -22,9 +22,9 @@ function App() {
     status: false,
   });
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
-  // S'il y a une erreur, change l'authState en false //
-  // Sinon change authState à true //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
+  // S'il y a une erreur, change l'authState en false
+  // Sinon change authState à true
 
   useEffect(() => {
     axios
@@ -50,7 +50,7 @@ function App() {
       });
   }, []);
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="App">
@@ -62,6 +62,6 @@ function App() {
   );
 }
 
-// Exportation du componsant App //
+// Exportation du componsant App
 
 export default App;

@@ -6,14 +6,14 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Signin from './Signin';
 
-// démarrage du composant Signup //
+// démarrage du composant Signup
 
 function Signup() {
-  // Déclaration du hook useState //
+  // Déclaration du hook useState
 
   const [formSubmit, setFormSubmit] = useState(false);
 
-  // Déclaration des valeurs initials //
+  // Déclaration des valeurs initials
 
   const initialValues = {
     firstname: '',
@@ -24,7 +24,7 @@ function Signup() {
     confirmation: '',
   };
 
-  // Déclaration de la validation des valeurs //
+  // Déclaration de la validation des valeurs
 
   const validationSchema = Yup.object().shape({
     firstname: Yup.string()
@@ -58,7 +58,7 @@ function Signup() {
       .required('Veuillez remplir ce champ'),
   });
 
-  // Création de la fonction onSubmit contenant les données //
+  // Création de la fonction onSubmit contenant les données
 
   const onSubmit = (data) => {
     axios
@@ -76,7 +76,7 @@ function Signup() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <>
@@ -173,6 +173,6 @@ function Signup() {
   );
 }
 
-// Exportation du componsant Signup //
+// Exportation du componsant Signup
 
 export default Signup;

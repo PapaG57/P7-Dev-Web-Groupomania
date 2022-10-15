@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useParams } from 'react-router-dom';
 
-// démarrage du composant UpdateEmail //
+// démarrage du composant UpdateEmail
 
 function UpdateEmail() {
   let { id } = useParams();
@@ -16,13 +16,13 @@ function UpdateEmail() {
   const [emailForm, setEmailForm] = useState(false);
   const { authState } = useContext(AuthContext);
 
-  // Déclaration des valeurs initials //
+  // Déclaration des valeurs initials
 
   const initialValues = {
     email: `${authState.email}`,
   };
 
-  // Déclaration du schema de validation //
+  // Déclaration du schema de validation
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -30,7 +30,7 @@ function UpdateEmail() {
       .required('Veuillez remplir ce champ'),
   });
 
-  // Exécute la function immediatement à l'ouverture de la page //
+  // Exécute la function immediatement à l'ouverture de la page
 
   useEffect(() => {
     axios
@@ -44,7 +44,7 @@ function UpdateEmail() {
       });
   }, []);
 
-  // demande PUT //
+  // demande PUT
 
   const handleUpdateEmail = (data) => {
     axios
@@ -63,7 +63,7 @@ function UpdateEmail() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <>
@@ -111,6 +111,6 @@ function UpdateEmail() {
   );
 }
 
-// Exportation du componsant UpdateEmail //
+// Exportation du componsant UpdateEmail
 
 export default UpdateEmail;

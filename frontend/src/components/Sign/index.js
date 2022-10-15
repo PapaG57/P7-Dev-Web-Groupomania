@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 import Signin from './Signin';
 import Signup from './Signup';
 
-// démarrage du composant index //
+// démarrage du composant index
 
 function Index(props) {
-  // Déclaration du hook useState //
+  // Déclaration du hook useState
 
   const [signUpModal, setSignUpModal] = useState(props.signup);
   const [signInModal, setSignInModal] = useState(props.signin);
 
-  // Système de basculement des modes //
+  // Système de basculement des modes
 
   const handleModals = (event) => {
     if (event.target.id === 'signup') {
@@ -24,7 +24,7 @@ function Index(props) {
     }
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="sign">
@@ -38,13 +38,6 @@ function Index(props) {
             S'inscrire
           </li>
           <br />
-          {/* <li
-            onClick={handleModals}
-            id="signin"
-            className={signInModal ? 'sign_active' : null}
-          >
-            Se connecter
-          </li> */}
         </ul>
         {signUpModal && <Signup />}
         {signInModal && <Signin />}
@@ -53,6 +46,6 @@ function Index(props) {
   );
 }
 
-// Exportation du composant index //
+// Exportation du composant index
 
 export default Index;

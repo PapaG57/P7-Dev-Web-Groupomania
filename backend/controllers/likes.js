@@ -1,4 +1,4 @@
-// gère les likes et les dislikes //
+// gère les likes et les dislikes
 
 const { Likes } = require('../models');
 

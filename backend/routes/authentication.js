@@ -1,4 +1,4 @@
-// routes pour l'authentification //
+// routes pour l'authentification
 
 const express = require('express');
 const router = express.Router();

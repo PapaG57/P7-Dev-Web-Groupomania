@@ -1,4 +1,4 @@
-// sécurisation de l'authentification //
+// sécurisation de l'authentification
 
 const { verify } = require('jsonwebtoken');
 require('dotenv').config({ path: '.env' });

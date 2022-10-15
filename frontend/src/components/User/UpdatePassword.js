@@ -6,10 +6,10 @@ import axios from 'axios';
 import DoneIcon from '@mui/icons-material/Done';
 import { useParams } from 'react-router-dom';
 
-// démarrage du composant UpdatePassword //
+// démarrage du composant UpdatePassword
 
 function UpdatePassword() {
-  // Déclaration des hooks useState, useContext et useParams //
+  // Déclaration des hooks useState, useContext et useParams
 
   let { id } = useParams();
   const { authState } = useContext(AuthContext);
@@ -18,7 +18,7 @@ function UpdatePassword() {
   const [newPassword, setNewPassword] = useState('');
   const [passwordForm, setPasswordForm] = useState(false);
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     axios
@@ -32,7 +32,7 @@ function UpdatePassword() {
       });
   }, []);
 
-  // demande PUT //
+  // demande PUT
 
   const handleUpdatePassword = () => {
     axios
@@ -57,7 +57,7 @@ function UpdatePassword() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <>
@@ -100,6 +100,6 @@ function UpdatePassword() {
   );
 }
 
-// Exportation du componsant UpdatePassword //
+// Exportation du componsant UpdatePassword
 
 export default UpdatePassword;

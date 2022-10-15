@@ -4,14 +4,14 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SignComponent from '../components/Sign';
 
-// démarrage du composant Sign //
+// démarrage du composant Sign
 
 function Sign() {
-  // Déclaration du hook useNavigate //
+  // Déclaration du hook useNavigate
 
   let navigate = useNavigate();
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     if (sessionStorage.getItem('JWToken')) {
@@ -19,7 +19,7 @@ function Sign() {
     }
   }, []);
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="page_container">
@@ -28,6 +28,6 @@ function Sign() {
   );
 }
 
-// Exportation du componsant Sign //
+// Exportation du componsant Sign
 
 export default Sign;

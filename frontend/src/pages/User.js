@@ -10,16 +10,16 @@ import UpdatePassword from '../components/User/UpdatePassword';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-// démarrage du composant User //
+// démarrage du composant User
 
 function User() {
-  // Déclaration des hooks useState et useParams//
+  // Déclaration des hooks useState et useParams
 
   const [username, setUsername] = useState('');
   const [profile, setImage] = useState('');
   let { id } = useParams();
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     if (!sessionStorage.getItem('JWToken')) {
@@ -38,7 +38,7 @@ function User() {
     }
   }, []);
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="user">

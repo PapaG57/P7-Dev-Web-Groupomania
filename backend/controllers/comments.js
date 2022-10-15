@@ -1,6 +1,6 @@
 const { Comments } = require('../models');
 
-// création d'un commentaire //
+// création d'un commentaire
 
 exports.createComment = async (req, res) => {
   if (req.body.comment === null || !req.body.comment) {
@@ -19,7 +19,7 @@ exports.createComment = async (req, res) => {
   }
 };
 
-// aller sur un commentaire //
+// aller sur un commentaire
 
 exports.getComment = async (req, res) => {
   const postId = req.params.postId;
@@ -27,7 +27,7 @@ exports.getComment = async (req, res) => {
   res.status(200).json(comments);
 };
 
-// modifier un commentaire //
+// modifier un commentaire
 
 exports.modifyComment = async (req, res) => {
   const commentId = req.params.commentId;
@@ -41,7 +41,7 @@ exports.modifyComment = async (req, res) => {
     });
 };
 
-// supprimer un commentaire //
+// supprimer un commentaire
 
 exports.deleteComment = async (req, res) => {
   const commentId = req.params.commentId;

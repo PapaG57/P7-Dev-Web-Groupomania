@@ -3,15 +3,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// démarrage du composant Signin //
+// démarrage du composant Signin
 
 function Signin() {
-  // Déclaration du hook useState //
+  // Déclaration du hook useState
 
   const [email, SetEmail] = useState('');
   const [password, SetPassword] = useState('');
 
-  // Requête POST connexion à la route de l'API //
+  // Requête POST connexion à la route de l'API
 
   const handleSignin = (event) => {
     event.preventDefault();
@@ -32,7 +32,7 @@ function Signin() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <form onSubmit={handleSignin} className="sign_form">
@@ -73,6 +73,6 @@ function Signin() {
   );
 }
 
-// Exportation du composant Signin //
+// Exportation du composant Signin
 
 export default Signin;

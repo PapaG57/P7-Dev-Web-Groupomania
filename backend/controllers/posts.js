@@ -1,7 +1,7 @@
 const { Posts, Likes, Comments } = require('../models');
 const fs = require('fs');
 
-// création d'un poste //
+// création d'un poste
 
 exports.createPost = async (req, res) => {
   let image;
@@ -26,7 +26,7 @@ exports.createPost = async (req, res) => {
   }
 };
 
-// pour voir tous les postes //
+// pour voir tous les postes
 
 exports.getAllPosts = async (req, res) => {
   try {
@@ -38,7 +38,7 @@ exports.getAllPosts = async (req, res) => {
   }
 };
 
-// pour voir un poste //
+// pour voir un poste
 
 exports.getPost = async (req, res) => {
   id = req.params.id;
@@ -51,7 +51,7 @@ exports.getPost = async (req, res) => {
     });
 };
 
-// pour modifier un poste //
+// pour modifier un poste
 
 exports.modifyPost = async (req, res) => {
   id = req.params.id;
@@ -70,7 +70,7 @@ exports.modifyPost = async (req, res) => {
     });
 };
 
-// suppression d'un post //
+// suppression d'un post
 
 exports.deletePost = (req, res) => {
   id = req.params.id;

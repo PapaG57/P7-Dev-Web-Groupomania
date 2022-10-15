@@ -1,4 +1,4 @@
-// Importer les dépendances nécessaires //
+// Importer les dépendances nécessaires
 
 import React, { useContext } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
@@ -7,17 +7,17 @@ import { NavLink } from 'react-router-dom';
 import Signout from './Sign/signout';
 import { AuthContext } from '../helpers/authContext';
 
-// démarrage du composant Navbar //
+// démarrage du composant Navbar
 
 function Navbar() {
-  // Déclaration du hook useContext //
+  // Déclaration du hook useContext
 
   const { authState } = useContext(AuthContext);
   const profil = () => {
     window.location.replace(`/user/${authState.id}`);
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <nav>
@@ -45,6 +45,6 @@ function Navbar() {
   );
 }
 
-// Exportation du componsant Navbar //
+// Exportation du componsant Navbar
 
 export default Navbar;

@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 
-// Import routers //
+// Import routers
 
 const authRouter = require('./routes/authentication');
 const usersRouter = require('./routes/users');

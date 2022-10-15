@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import DoneIcon from '@mui/icons-material/Done';
 
-// démarrage du composant Create //
+// démarrage du composant Create
 
 function Create() {
-  // Déclaration du hook useNavigate //
+  // Déclaration du hook useNavigate
 
   const [content, setContent] = useState('');
   const [image, setImage] = useState();
 
-  // Demande POST pour créer un nouveau message //
+  // Demande POST pour créer un nouveau message
 
   const handlePost = (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ function Create() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="create">
@@ -58,6 +58,6 @@ function Create() {
   );
 }
 
-// Exportation du componsant Create //
+// Exportation du componsant Create
 
 export default Create;

@@ -3,17 +3,17 @@
 import React from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-// démarrage du composant Signout //
+// démarrage du composant Signout
 
 function Signout() {
-  // Suppression du token dans sessionStorage //
+  // Suppression du token dans sessionStorage
 
   const Signout = () => {
     sessionStorage.removeItem('JWToken');
     window.location.replace('/');
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div onClick={Signout}>
@@ -22,6 +22,6 @@ function Signout() {
   );
 }
 
-// Exportation du composant Signout //
+// Exportation du composant Signout
 
 export default Signout;

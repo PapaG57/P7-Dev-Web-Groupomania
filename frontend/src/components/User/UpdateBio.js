@@ -8,10 +8,10 @@ import DoneIcon from '@mui/icons-material/Done';
 import { Formik, Form, Field } from 'formik';
 import { useParams } from 'react-router-dom';
 
-// démarrage du composant UpdateBio //
+// démarrage du composant UpdateBio
 
 function UpdateBio() {
-  // Déclaration des hooks useState, useContext et useParams //
+  // Déclaration des hooks useState, useContext et useParams
 
   const [username, setUsername] = useState('');
   const [description, setDescription] = useState('');
@@ -19,13 +19,13 @@ function UpdateBio() {
   const { authState } = useContext(AuthContext);
   let { id } = useParams();
 
-  // Déclaration des valeurs initials //
+  // Déclaration des valeurs initials
 
   const initialValues = {
     description: `${description}`,
   };
 
-  // Exécute cette fonction immédiatement à l'ouverture de la page //
+  // Exécute cette fonction immédiatement à l'ouverture de la page
 
   useEffect(() => {
     axios
@@ -40,7 +40,7 @@ function UpdateBio() {
       });
   }, []);
 
-  // demande PUT //
+  // demande PUT
 
   const handleUpdateBio = (data) => {
     axios
@@ -59,7 +59,7 @@ function UpdateBio() {
       });
   };
 
-  // DOM virtuel //
+  // DOM virtuel
 
   return (
     <div className="user_biography">
@@ -110,6 +110,6 @@ function UpdateBio() {
   );
 }
 
-// Exportation du componsant UpdateBio //
+// Exportation du componsant UpdateBio
 
 export default UpdateBio;
