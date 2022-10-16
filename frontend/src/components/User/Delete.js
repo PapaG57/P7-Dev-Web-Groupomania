@@ -45,6 +45,8 @@ function Delete() {
   };
 
   // DOM virtuel
+  // on fait une vérification si l'utilisateur en cours à le même mail ou si c'est l'admin.
+  // Après vérification, l'admin ou l'utilisateur en cours peut supprimer.
 
   return (
     <>

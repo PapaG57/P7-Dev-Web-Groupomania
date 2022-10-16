@@ -1,4 +1,4 @@
-const { Posts, Likes, Comments } = require('../models');
+const { Posts, Likes, Comments, Users } = require('../models');
 const fs = require('fs');
 
 // création d'un poste
@@ -74,9 +74,20 @@ exports.modifyPost = async (req, res) => {
 
 exports.deletePost = (req, res) => {
   id = req.params.id;
-  Posts.destroy({ where: { id: id } })
-    .then(() => {
-      res.status(200).json({ message: 'Post suprimé' });
-    })
-    .catch((error) => res.status(500).json({ error }));
+
+  var test = false;
+  Posts.findOne({ where: { id: id } }).then((p) => {
+    if (p.dataValues.username == req.user.username) {
+      test = true;
+    }
+    if (req.user.isAdmin || test) {
+      Posts.destroy({ where: { id: id } })
+        .then(() => {
+          res.status(200).json({ message: 'Post suprimé' });
+        })
+        .catch((error) => res.status(500).json({ error }));
+    } else {
+      console.log('error : forbidden');
+    }
+  });
 };

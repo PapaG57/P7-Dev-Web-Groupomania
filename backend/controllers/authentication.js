@@ -17,7 +17,7 @@ exports.signup = async (req, res) => {
     return res.status(400).json({ error: 'champs incomplet' });
   }
   if (firstname.length <= 2) {
-    return res.status(400).json({ error: 'prenom trop court' });
+    return res.status(400).json({ error: 'prénom trop court' });
   }
   if (lastname.length <= 2) {
     return res.status(400).json({ error: 'nom trop court' });
@@ -30,7 +30,7 @@ exports.signup = async (req, res) => {
   const EMAIL =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!EMAIL.test(email)) {
-    return res.status(400).json({ error: 'adress email non valide' });
+    return res.status(400).json({ error: 'adresse email non valide' });
   }
 
   //Creation de la reg exp pour validation du mot de passe
@@ -38,7 +38,7 @@ exports.signup = async (req, res) => {
   if (!PASS.test(password)) {
     return res.status(400).json({
       error:
-        'Votre mot de pass doit inclure 8 à 24 caractère avec majiscule, minuscule, nombre, et caractere special',
+        'Votre mot de passe doit inclure 8 à 24 caractères avec au moins une majuscule, une minuscule, un nombre, et un caractère spécial',
     });
   }
   await Users.findOne({ where: { email: email } }).then((exist) => {

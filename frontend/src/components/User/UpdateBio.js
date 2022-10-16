@@ -19,7 +19,7 @@ function UpdateBio() {
   const { authState } = useContext(AuthContext);
   let { id } = useParams();
 
-  // Déclaration des valeurs initials
+  // Déclaration des valeurs initiales
 
   const initialValues = {
     description: `${description}`,
