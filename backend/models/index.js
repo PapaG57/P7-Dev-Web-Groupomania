@@ -11,16 +11,27 @@ const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
+    2 if (process.env.DATABASE_URL) {
+    3   // En production sur Render
+    4   sequelize = new Sequelize(process.env.DATABASE_URL, {
+    5     dialect: 'mysql',
+    6     protocol: 'mysql',
+    7     dialectOptions: {
+    8       ssl: {
+    9         require: true,
+   10         rejectUnauthorized: false
+   11       }
+   12     }
+   13   });
+   14 } else {
+   15   // En local
+   16   sequelize = new Sequelize(
+   17     config.database,
+   18     config.username,
+   19     config.password,
+   20     config
+   21   );
+   22 }
 
 fs.readdirSync(__dirname)
   .filter((file) => {
