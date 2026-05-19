@@ -7,19 +7,35 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const configPath = path.join(__dirname, '..', 'config', 'config.json');
+const config = require(configPath)[env];
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
+if (process.env.DATABASE_URL) {
+  // Configuration pour la production (Render + Aiven)
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'mysql',
+    logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  });
+} else if (config && config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
+} else if (config) {
   sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
     config
   );
+} else {
+  console.error("Erreur : Impossible de charger la configuration de la base de données.");
+  process.exit(1);
 }
 
 fs.readdirSync(__dirname)
