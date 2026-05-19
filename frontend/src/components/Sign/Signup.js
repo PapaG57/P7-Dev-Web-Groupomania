@@ -12,6 +12,7 @@ function Signup() {
   // Déclaration du hook useState
 
   const [formSubmit, setFormSubmit] = useState(false);
+  const [error, setError] = useState('');
 
   // Déclaration des valeurs initials
 
@@ -43,12 +44,12 @@ function Signup() {
       .email('Email non valide (nom@email.com)')
       .required('Veuillez remplir ce champ'),
     password: Yup.string()
-      .min(6, 'Au moins 6 caractères')
-      .max(18, 'Pas plus de 18 caractères')
+      .min(8, 'Au moins 8 caractères')
+      .max(24, 'Pas plus de 24 caractères')
       .required('Veuillez remplir ce champ')
       .matches(
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,18}$/,
-        'Doit contenir une majuscule, une minuscule et un chiffre '
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
+        'Doit contenir une majuscule, une minuscule et un chiffre (8-24 car.)'
       ),
     confirmation: Yup.string()
       .oneOf(
@@ -61,18 +62,29 @@ function Signup() {
   // Création de la fonction onSubmit contenant les données
 
   const onSubmit = (data) => {
+    setError(''); 
+    
+    const envUrl = process.env.REACT_APP_API_URL || '';
+    if (!envUrl) {
+      setError("Erreur : L'URL de l'API n'est pas configurée dans le fichier .env");
+      return;
+    }
+    
+    const apiUrl = envUrl.replace(/\/$/, '');
+    console.log("Tentative d'inscription sur :", apiUrl);
+
     axios
-      .post(`${process.env.REACT_APP_API_URL}api/sign/signup`, data)
+      .post(`${apiUrl}/api/sign/signup`, data)
       .then((res) => {
-        console.log(res.data);
         if (res.data.error) {
-          console.log(res.data.error);
+          setError(res.data.error);
         } else {
           setFormSubmit(true);
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.error("Erreur API :", err);
+        setError(err.response?.data?.error || "Le serveur est injoignable ou met trop de temps à répondre.");
       });
   };
 
@@ -98,6 +110,7 @@ function Signup() {
         >
           <Form className="sign_form">
             <h1>Créer un compte</h1>
+            {error && <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>}
             <br />
             <ErrorMessage name="firstname" component="span" />
             <br />

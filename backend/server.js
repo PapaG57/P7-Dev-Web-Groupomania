@@ -50,15 +50,25 @@ function createAdmin() {
 // { force: true } c'est pour effacer si les tables existent et les recréer
 // createAdmin(); créer l'administrateur par défaut lors du 1er lancement
 
+const isProduction = process.env.NODE_ENV === 'production' || process.env.DATABASE_URL !== undefined;
+
 const server = http.createServer(app);
-db.sequelize.sync(/*{ force: true }*/).then(() => {
-  server.on('error', errorHandler);
-  server.on('listening', () => {
-    const address = server.address();
-    const bind =
-      typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
-    console.log('Listening on ' + bind);
-    // createAdmin();
-  });
-  server.listen(port);
+
+// On définit le port et on démarre le serveur IMMÉDIATEMENT
+// pour éviter le "Timeout" de Render
+server.listen(port, () => {
+  console.log('Listening on port ' + port);
 });
+
+// Ensuite, on tente la connexion à la base de données sans bloquer le serveur
+db.sequelize.sync({ force: false }).then(() => {
+    console.log('Database synchronized');
+    if (!isProduction) {
+      // createAdmin(); // Désactivé par sécurité pour éviter les doublons
+    }
+}).catch(err => {
+    console.error('Database connection error:', err);
+});
+
+server.on('error', errorHandler);
+

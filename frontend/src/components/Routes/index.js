@@ -1,29 +1,30 @@
 // Importer les dépendances nécessaires
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Sign from '../../pages/Sign';
 import Home from '../../pages/Home';
 import User from '../../pages/User';
 import Post from '../../pages/Post';
 
-// démarrage du composant index
+// démarrage du composant AppRoutes
 
-function index() {
+function AppRoutes() {
   // DOM virtuel //
 
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<Sign />} />
-        <Route path="/home" exact element={<Home />} />
-        <Route path="/user/:id" exact element={<User />} />
-        <Route path="/home/:id" exact element={<Post />} />
+        <Route path="/" element={<Sign />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/user/:id" element={<User />} />
+        <Route path="/home/:id" element={<Post />} />
+        <Route path="*" element={<Sign />} />
       </Routes>
     </Router>
   );
 }
 
-// Exportation du componsant index
+// Exportation du composant AppRoutes
 
-export default index;
+export default AppRoutes;

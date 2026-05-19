@@ -130,6 +130,6 @@ exports.auth = (req, res) => {
   try {
     return res.status(200).json(req.user);
   } catch (error) {
-    return res.status(500).json({ error: 'Token valide non trouuvé' });
+    return res.status(500).json({ error: 'Token valide non trouvé' });
   }
 };

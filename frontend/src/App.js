@@ -5,7 +5,7 @@ import { AuthContext } from './helpers/authContext';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
-import Routes from './components/Routes';
+import AppRoutes from './components/Routes';
 
 // Application du point d'entrée
 
@@ -34,19 +34,23 @@ function App() {
         },
       })
       .then((res) => {
-        if (res.data.error) {
-          setAuthState({ ...authState, status: false });
-        } else {
+        if (res.data && res.data.id) {
           setAuthState({
             id: res.data.id,
             username: res.data.username,
             email: res.data.email,
-            biography: res.data.biography,
-            image: res.data.image,
+            biography: res.data.description || '',
+            image: res.data.profile || '',
             isAdmin: res.data.isAdmin,
             status: true,
           });
+        } else {
+          setAuthState({ ...authState, status: false });
         }
+      })
+      .catch((err) => {
+        console.log("Erreur d'authentification au démarrage", err);
+        setAuthState({ ...authState, status: false });
       });
   }, []);
 
@@ -56,7 +60,7 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <Header />
-        <Routes />
+        <AppRoutes />
       </AuthContext.Provider>
     </div>
   );

@@ -37,7 +37,13 @@ function Index(props) {
           >
             S'inscrire
           </li>
-          <br />
+          <li
+            onClick={handleModals}
+            id="signin"
+            className={signInModal ? 'sign_active' : null}
+          >
+            Se connecter
+          </li>
         </ul>
         {signUpModal && <Signup />}
         {signInModal && <Signin />}

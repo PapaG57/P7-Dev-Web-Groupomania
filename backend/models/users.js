@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     profile: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'http://localhost:3001/image/default.png',
+      defaultValue: (process.env.BASE_URL || 'http://localhost:3001') + '/image/default.png',
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
