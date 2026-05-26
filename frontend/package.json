@@ -2,7 +2,6 @@
   "name": "groupomania",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://papag57.github.io/P7-Dev-Web-Groupomania",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
