@@ -26,5 +26,8 @@
     "nodemon": "^2.0.20",
     "sequelize": "^7.0.0-alpha.2",
     "sequelize-cli": "^6.3.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
